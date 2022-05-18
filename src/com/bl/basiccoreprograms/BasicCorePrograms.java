@@ -1,5 +1,7 @@
 package com.bl.basiccoreprograms;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.Scanner;
 
 public class BasicCorePrograms {
@@ -31,13 +33,31 @@ public class BasicCorePrograms {
             System.out.println("Please Enter a number between 1 to 10 Only");
             choiceOfUsers = choice.nextInt();
         }
+        while (choiceOfUsers > 0) {
+            switch (choiceOfUsers) {
+                case PROGRAM_ONE:
+                    System.out.println("1. Program is to flip the coin");
+                    functionOneCoinFlip();
+                    System.out.println("percentage of Head is " + HEAD_PERCENTAGE + " 1%");
+                    System.out.println("percentage of Tail is " + TAIL_PERCENTAGE + " %");
 
-        switch (choiceOfUsers) {
-            case PROGRAM_ONE:
-                System.out.println("1. Program is to flip the coin");
-                functionOneCoinFlip();
-                System.out.println("percentage of Head is " + HEAD_PERCENTAGE + " 1%");
-                System.out.println("percentage of Tail is " + TAIL_PERCENTAGE + " %");
+                    System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
+                    choiceOfUsers = choice.nextInt();
+                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                        System.out.println("Program Terminated");
+                        break;
+                    }
+                    break;
+                case PROGRAM_TWO:
+                    System.out.println("2. Leap year program ");
+                    functionTwoLeapYear();
+                    System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
+                    choiceOfUsers = choice.nextInt();
+                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                        System.out.println("Program Terminated");
+                        break;
+                    }
+            }
         }
     }
 
@@ -65,5 +85,20 @@ public class BasicCorePrograms {
 
         TAIL_PERCENTAGE = (double) tailCount / totalTimesFlip * 100;
         HEAD_PERCENTAGE = (double) headCount / totalTimesFlip * 100;
+    }
+
+    static void functionTwoLeapYear() {
+        Scanner inputForYear = new Scanner(System.in);
+
+        int inputYear = inputForYear.nextInt();
+        while (!((inputYear > 1000) && (inputYear < 10000))) {
+            System.out.println("Please Enter a four digit number");
+            inputYear = inputForYear.nextInt();
+        }
+
+        if ((inputYear % 4 == 0) || (inputYear % 100 == 0 && inputYear % 400 == 0))
+            System.out.println("Input Year " + inputYear + " is a Leap year");
+        else
+            System.out.println("Input Year " + inputYear + " is not a Leap year");
     }
 }
