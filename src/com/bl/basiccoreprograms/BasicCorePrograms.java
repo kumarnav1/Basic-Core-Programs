@@ -45,7 +45,7 @@ public class BasicCorePrograms {
                     choiceOfUsers = choice.nextInt();
                     while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
-                        break;
+                        return;
                     }
                     break;
                 case PROGRAM_TWO:
@@ -55,8 +55,19 @@ public class BasicCorePrograms {
                     choiceOfUsers = choice.nextInt();
                     while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
-                        break;
+                        return;
                     }
+                    break;
+                case PROGRAM_THREE:
+                    System.out.println("3. Power of 2 program");
+                    functionThreePowerOfTwo();
+                    System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
+                    choiceOfUsers = choice.nextInt();
+                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                        System.out.println("Program Terminated");
+                        return;
+                    }
+                    break;
             }
         }
     }
@@ -100,5 +111,19 @@ public class BasicCorePrograms {
             System.out.println("Input Year " + inputYear + " is a Leap year");
         else
             System.out.println("Input Year " + inputYear + " is not a Leap year");
+    }
+
+    static void functionThreePowerOfTwo() {
+        Scanner inputForN = new Scanner(System.in);
+        System.out.println("Please enter a number to print power of 2");
+        int number = inputForN.nextInt();
+        while (!(number >= 0 && number < 31)) {
+            System.out.println("This will cause Integer overflow. Please Enter number between 0 to 31 ");
+            number = inputForN.nextInt();
+        }
+        for (int index = 0; index <= number; index++) {
+            int answer = (int) Math.pow(2, index);
+            System.out.println("2 ^ " + index + " = " + answer);
+        }
     }
 }
