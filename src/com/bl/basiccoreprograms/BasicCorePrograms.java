@@ -68,6 +68,15 @@ public class BasicCorePrograms {
                         return;
                     }
                     break;
+                case PROGRAM_SIX:
+                    System.out.println("6. Program to compute Quotient and Remainder ");
+                    functionQuotientRemainder();
+                    System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
+                    choiceOfUsers = choice.nextInt();
+                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                        System.out.println("Program Terminated");
+                        return;
+                    }
             }
         }
     }
@@ -125,5 +134,20 @@ public class BasicCorePrograms {
             int answer = (int) Math.pow(2, index);
             System.out.println("2 ^ " + index + " = " + answer);
         }
+    }
+
+    static void functionQuotientRemainder() {
+        float divisor, dividend, quotient, remainder;
+        Scanner forInputs = new Scanner(System.in);
+        System.out.println("Please enter a Dividend");
+        dividend = forInputs.nextFloat();
+        System.out.println("Please enter a Divisor");
+        divisor = forInputs.nextFloat();
+
+        quotient = dividend / divisor;
+        remainder = dividend % divisor;
+
+        System.out.println("Quotient is : " + quotient);
+        System.out.println("Remainder is : " + remainder);
     }
 }
