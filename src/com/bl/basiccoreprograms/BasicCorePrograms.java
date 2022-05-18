@@ -16,7 +16,6 @@ public class BasicCorePrograms {
     static final int PROGRAM_EIGHT = 8;
     static final int PROGRAM_NINE = 9;
     static final int PROGRAM_TEN = 10;
-
     static double HEAD_PERCENTAGE = 0;
     static double TAIL_PERCENTAGE = 0;
 
@@ -75,6 +74,28 @@ public class BasicCorePrograms {
                 case PROGRAM_SEVEN:
                     System.out.println("7. Program to swap two number ");
                     functionSwappingNumber();
+                    System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
+                    choiceOfUsers = choice.nextInt();
+                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                        System.out.println("Program Terminated");
+                        return;
+                    }
+                case PROGRAM_EIGHT:
+                    System.out.println("8. Program to swap two number ");
+                    int returnedNumber = functionNumberEvenOdd();
+                    if (returnedNumber == 0)
+                        System.out.println("Number is even");
+                    else
+                        System.out.println("Number is odd");
+                    System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
+                    choiceOfUsers = choice.nextInt();
+                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                        System.out.println("Program Terminated");
+                        return;
+                    }
+                case PROGRAM_TEN:
+                    System.out.println("10. Program to swap two number ");
+                    System.out.println("Largest of three is : " + functionLargestAmongThree());
                     System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
                     choiceOfUsers = choice.nextInt();
                     while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
@@ -169,5 +190,30 @@ public class BasicCorePrograms {
         number1 = number2 - number1;
         number2 = number2 - number1;
         System.out.println("Number after swapping : " + number1 + " " + number2);
+    }
+
+    static int functionNumberEvenOdd() {
+        System.out.println("Enter the number to check Even or odd");
+        Scanner takeInput = new Scanner(System.in);
+        int number = takeInput.nextInt();
+        return number % 2;
+    }
+
+    static int functionLargestAmongThree() {
+        int number1, number2, number3, maxOfAllThree, tempVarForStoring;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please Enter the 1st number");
+        number1 = sc.nextInt();
+
+        System.out.println("Please Enter the 2nd number");
+        number2 = sc.nextInt();
+
+        System.out.println("Please Enter the 3rd number");
+        number3 = sc.nextInt();
+
+        tempVarForStoring = (number1 > number2) ? number1 : number2;
+        maxOfAllThree = (tempVarForStoring > number3) ? tempVarForStoring : number3;
+        return maxOfAllThree;
     }
 }
