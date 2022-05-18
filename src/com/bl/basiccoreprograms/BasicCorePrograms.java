@@ -71,6 +71,10 @@ public class BasicCorePrograms {
                 case PROGRAM_SIX:
                     System.out.println("6. Program to compute Quotient and Remainder ");
                     functionQuotientRemainder();
+
+                case PROGRAM_SEVEN:
+                    System.out.println("7. Program to swap two number ");
+                    functionSwappingNumber();
                     System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
                     choiceOfUsers = choice.nextInt();
                     while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
@@ -149,5 +153,21 @@ public class BasicCorePrograms {
 
         System.out.println("Quotient is : " + quotient);
         System.out.println("Remainder is : " + remainder);
+    }
+
+    static void functionSwappingNumber() {
+        int number1, number2;
+        Scanner toInputNumbers = new Scanner(System.in);
+        System.out.println("Please enter a 1st number");
+        number1 = toInputNumbers.nextInt();
+
+        System.out.println("Please enter a 2nd number");
+        number2 = toInputNumbers.nextInt();
+
+        System.out.println("Numbers before swapping : " + number1 + " " + number2);
+        number2 = number1 + number2;
+        number1 = number2 - number1;
+        number2 = number2 - number1;
+        System.out.println("Number after swapping : " + number1 + " " + number2);
     }
 }
