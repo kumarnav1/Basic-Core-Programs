@@ -24,7 +24,7 @@ public class BasicCorePrograms {
         System.out.println("Your choices : ");
         Scanner choice = new Scanner(System.in);
         int choiceOfUsers = choice.nextInt();
-        while ((choiceOfUsers < 0 || choiceOfUsers > 11)) {
+        while ((choiceOfUsers <= 0 || choiceOfUsers > 11)) {
             System.out.println("Please Enter a number between 1 to 10 Only and Enter 11 to terminate from here");
             choiceOfUsers = choice.nextInt();
         }
@@ -38,7 +38,7 @@ public class BasicCorePrograms {
                     System.out.println("percentage of Tail is " + TAIL_PERCENTAGE + " %");
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
-                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                    if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
@@ -48,7 +48,7 @@ public class BasicCorePrograms {
                     functionTwoLeapYear();
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
-                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                    if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
@@ -58,7 +58,7 @@ public class BasicCorePrograms {
                     functionThreePowerOfTwo();
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
-                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                    if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
@@ -69,7 +69,7 @@ public class BasicCorePrograms {
                     System.out.println("Harmonic value : " + harmonicNumber);
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
-                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                    if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
@@ -79,7 +79,7 @@ public class BasicCorePrograms {
                     functionPrimeFactors();
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
-                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                    if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
@@ -89,7 +89,7 @@ public class BasicCorePrograms {
                     functionQuotientRemainder();
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
-                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                    if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
@@ -100,7 +100,7 @@ public class BasicCorePrograms {
                     functionSwappingNumber();
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
-                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                    if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
@@ -113,7 +113,7 @@ public class BasicCorePrograms {
                         System.out.println("Number is odd");
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
-                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                    if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
@@ -123,7 +123,7 @@ public class BasicCorePrograms {
                     functionConsonantVowel();
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
-                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                    if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
@@ -133,7 +133,7 @@ public class BasicCorePrograms {
                     System.out.println("Largest of three is : " + functionLargestAmongThree());
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
-                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                    if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
@@ -274,7 +274,7 @@ public class BasicCorePrograms {
                 isVowel = true;
         }
 
-        if (isVowel == true)
+        if (isVowel)
             System.out.println("Alphabet is Vowel");
         else if (capitalAlphabet > 'A' && capitalAlphabet < 'Z')
             System.out.println("Alphabet is Consonant");
