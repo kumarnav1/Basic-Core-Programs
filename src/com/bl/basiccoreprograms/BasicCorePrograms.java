@@ -14,6 +14,7 @@ public class BasicCorePrograms {
     static final int PROGRAM_EIGHT = 8;
     static final int PROGRAM_NINE = 9;
     static final int PROGRAM_TEN = 10;
+    static final int TERMINATION = 11;
 
     public static void main(String[] args) {
 
@@ -22,12 +23,13 @@ public class BasicCorePrograms {
         System.out.println("Your choices : ");
         Scanner choice = new Scanner(System.in);
         int choiceOfUsers = choice.nextInt();
+
         while ((choiceOfUsers <= 0 || choiceOfUsers > 11)) {
             System.out.println("Please Enter a number between 1 to 10 Only and Enter 11 to terminate from here");
             choiceOfUsers = choice.nextInt();
         }
-        while (choiceOfUsers > 0) {
 
+        while (choiceOfUsers > 0) {
             switch (choiceOfUsers) {
                 case PROGRAM_ONE:
                     System.out.println("1. Program is to flip the coin");
@@ -85,12 +87,12 @@ public class BasicCorePrograms {
                     functionQuotientRemainder();
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
+
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
                     break;
-
                 case PROGRAM_SEVEN:
                     System.out.println("7. Program to swap two number ");
                     functionSwappingNumber();
@@ -100,6 +102,7 @@ public class BasicCorePrograms {
                         System.out.println("Program Terminated");
                         return;
                     }
+                    break;
                 case PROGRAM_EIGHT:
                     System.out.println("8. Program to swap two number ");
                     int returnedNumber = functionIsEvenOdd();
@@ -123,7 +126,7 @@ public class BasicCorePrograms {
                         System.out.println("Program Terminated");
                         return;
                     }
-
+                    break;
                 case PROGRAM_TEN:
                     System.out.println("10. Program to find the largest among three numbers");
                     System.out.println("Largest of three is : " + functionLargestAmongThree());
@@ -133,7 +136,8 @@ public class BasicCorePrograms {
                         System.out.println("Program Terminated");
                         return;
                     }
-                case 11:
+                    break;
+                case TERMINATION:
                     System.out.println("your program is terminated");
                     return;
             }
@@ -173,8 +177,8 @@ public class BasicCorePrograms {
     static void functionTwoLeapYear() {
         System.out.println("Enter a Year to check that year is Leap year or not");
         Scanner inputForYear = new Scanner(System.in);
-
         int inputYear = inputForYear.nextInt();
+
         while (!((inputYear > 1000) && (inputYear < 10000))) {
             System.out.println("Please Enter a four digit number");
             inputYear = inputForYear.nextInt();
@@ -190,6 +194,7 @@ public class BasicCorePrograms {
         Scanner inputForN = new Scanner(System.in);
         System.out.println("Please enter a number to print power of 2");
         int number = inputForN.nextInt();
+
         while (!(number >= 0 && number < 31)) {
             System.out.println("This will cause Integer overflow. Please Enter number between 0 to 31 ");
             number = inputForN.nextInt();
@@ -234,20 +239,18 @@ public class BasicCorePrograms {
     static int functionIsEvenOdd() {
         System.out.println("Enter the number to check Even or odd");
         Scanner takeInput = new Scanner(System.in);
+
         int number = takeInput.nextInt();
         return number % 2;
     }
 
     static int functionLargestAmongThree() {
         int number1, number2, number3, maxOfAllThree, tempVarForStoring;
-
         Scanner sc = new Scanner(System.in);
         System.out.println("Please Enter the 1st number");
         number1 = sc.nextInt();
-
         System.out.println("Please Enter the 2nd number");
         number2 = sc.nextInt();
-
         System.out.println("Please Enter the 3rd number");
         number3 = sc.nextInt();
 
@@ -259,7 +262,6 @@ public class BasicCorePrograms {
     static void functionConsonantVowel() {
         boolean isVowel = false;
         System.out.println("Enter an Alphabet to check whether it is Vowel or Consonant");
-
         Scanner takingChar = new Scanner(System.in);
 
         char singleCharInput = takingChar.next().charAt(0);
@@ -286,6 +288,7 @@ public class BasicCorePrograms {
         Scanner takeInput = new Scanner(System.in);
         System.out.println("Please enter a number to find out the N-th Harmonic");
         int numberN = takeInput.nextInt();
+
         float harmonic = 1;
         for (int index = 2; index <= numberN; index++) {
             harmonic += (float) 1 / index;
@@ -298,6 +301,7 @@ public class BasicCorePrograms {
         Scanner takeInput = new Scanner(System.in);
         System.out.println("Please enter a number to find out the prime factors");
         number = takeInput.nextInt();
+
         for (int index = 2; index <= number; index++) {
             while (number % index == 0) {
                 System.out.print("\t" + index + "\t");
