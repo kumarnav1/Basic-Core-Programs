@@ -1,7 +1,5 @@
 package com.bl.basiccoreprograms;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.util.Scanner;
 
 public class BasicCorePrograms {
@@ -21,18 +19,21 @@ public class BasicCorePrograms {
 
     public static void main(String[] args) {
 
-        int tempVarForChoice = 0;
-
         System.out.println("Welcome to the section of Basic core programs");
+        System.out.println("Below is the list of all 10 Programs ");
         System.out.println("Enter a number between 1 to 10 to run any one of the program");
+        functionDisplayChoices();
+        System.out.println("Your choices : ");
         Scanner choice = new Scanner(System.in);
         int choiceOfUsers = choice.nextInt();
 
-        while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
-            System.out.println("Please Enter a number between 1 to 10 Only");
+        while ((choiceOfUsers < 0 || choiceOfUsers > 11)) {
+            System.out.println("Please Enter a number between 1 to 10 Only and Enter 11 to terminate from here");
+            //display all choices
             choiceOfUsers = choice.nextInt();
         }
         while (choiceOfUsers > 0) {
+
             switch (choiceOfUsers) {
                 case PROGRAM_ONE:
                     System.out.println("1. Program is to flip the coin");
@@ -42,6 +43,7 @@ public class BasicCorePrograms {
 
                     System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
                     choiceOfUsers = choice.nextInt();
+
                     while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
@@ -67,6 +69,19 @@ public class BasicCorePrograms {
                         return;
                     }
                     break;
+                case PROGRAM_FOUR:
+                    System.out.println("4. Harmonic Number program");
+                    float harmonicNumber = functionHarmonicNUmber();
+                    System.out.println("Harmonic value : " + harmonicNumber);
+                    System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
+                    choiceOfUsers = choice.nextInt();
+                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                        System.out.println("Program Terminated");
+                        return;
+                    }
+                    break;
+                case PROGRAM_FIVE:
+                    break;
                 case PROGRAM_SIX:
                     System.out.println("6. Program to compute Quotient and Remainder ");
                     functionQuotientRemainder();
@@ -82,7 +97,7 @@ public class BasicCorePrograms {
                     }
                 case PROGRAM_EIGHT:
                     System.out.println("8. Program to swap two number ");
-                    int returnedNumber = functionNumberEvenOdd();
+                    int returnedNumber = functionIsEvenOdd();
                     if (returnedNumber == 0)
                         System.out.println("Number is even");
                     else
@@ -93,15 +108,30 @@ public class BasicCorePrograms {
                         System.out.println("Program Terminated");
                         return;
                     }
-                case PROGRAM_TEN:
-                    System.out.println("10. Program to swap two number ");
-                    System.out.println("Largest of three is : " + functionLargestAmongThree());
+                case PROGRAM_NINE:
+                    System.out.println("9. Program to check Vowel or Consonant ");
+                    functionConsonantVowel();
                     System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
                     choiceOfUsers = choice.nextInt();
                     while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
                         return;
                     }
+
+                case PROGRAM_TEN:
+                    System.out.println("10. Program to find the largest among three numbers");
+
+                    System.out.println("Largest of three is : " + functionLargestAmongThree());///
+
+                    System.out.println(" \t Do you want to Run any other program If yes Please press that number and to terminate program, enter any number other than 0 to 10");
+                    choiceOfUsers = choice.nextInt();
+                    while ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
+                        System.out.println("Program Terminated");
+                        return;
+                    }
+                case 11:
+                    System.out.println("your program is terminated");
+                    return;
             }
         }
     }
@@ -133,6 +163,7 @@ public class BasicCorePrograms {
     }
 
     static void functionTwoLeapYear() {
+        System.out.println("Enter a Year to check that year is Leap year or not");
         Scanner inputForYear = new Scanner(System.in);
 
         int inputYear = inputForYear.nextInt();
@@ -192,7 +223,7 @@ public class BasicCorePrograms {
         System.out.println("Number after swapping : " + number1 + " " + number2);
     }
 
-    static int functionNumberEvenOdd() {
+    static int functionIsEvenOdd() {
         System.out.println("Enter the number to check Even or odd");
         Scanner takeInput = new Scanner(System.in);
         int number = takeInput.nextInt();
@@ -215,5 +246,62 @@ public class BasicCorePrograms {
         tempVarForStoring = (number1 > number2) ? number1 : number2;
         maxOfAllThree = (tempVarForStoring > number3) ? tempVarForStoring : number3;
         return maxOfAllThree;
+    }
+
+    static void functionConsonantVowel() {
+        boolean isVowel = false;
+        System.out.println("Enter an Alphabet to check whether it is Vowel or Consonant");
+
+        Scanner takingChar = new Scanner(System.in);
+
+        char singleCharInput = takingChar.next().charAt(0);
+        char capitalAlphabet = Character.toUpperCase(singleCharInput);
+
+        switch (capitalAlphabet) {
+            case 'A':
+            case 'E':
+            case 'I':
+            case 'O':
+            case 'U':
+                isVowel = true;
+        }
+
+        if (isVowel == true)
+            System.out.println("Alphabet is Vowel");
+        else if (capitalAlphabet > 'A' && capitalAlphabet < 'Z')
+            System.out.println("Alphabet is Consonant");
+        else
+            System.out.println("Please Enter an Alphabet");
+    }
+
+    static float functionHarmonicNUmber(){
+        Scanner takeInput = new Scanner(System.in);
+        System.out.println("Please enter a number to find out the N-th Harmonic");
+        int numberN= takeInput.nextInt();
+        float harmonic = 1;
+        for (int index = 2; index <= numberN; index++) {
+            harmonic += (float)1/index;
+        }
+        return harmonic;
+    }
+
+    static void functionDisplayChoices() {
+        System.out.println("1. Flip coin and print percentage program ");
+        System.out.println("2. Leap Year Program ");
+        System.out.println("3. Power of 2 table program ");
+        System.out.println("4. Harmonic Number Program");
+        System.out.println("5. Prime Factors program");
+        System.out.println("6. Compute Quotient and Remainder");
+        System.out.println("7. Swap two numbers program ");
+        System.out.println("8. Even or Odd Program ");
+        System.out.println("9. Alphabet is Vowel or Consonant Program ");
+        System.out.println("10. Largest among three Numbers Program ");
+    }
+
+    static void functionToDisplayOverCases(){
+        System.out.println("Below is the list of all 10 Programs ");
+        System.out.println("Enter a number between 1 to 10 to run any one of the program and any other number to terminate");
+        functionDisplayChoices();
+        System.out.println("Your choices : ");
     }
 }
