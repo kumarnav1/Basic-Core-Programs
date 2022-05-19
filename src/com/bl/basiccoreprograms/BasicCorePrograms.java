@@ -14,8 +14,6 @@ public class BasicCorePrograms {
     static final int PROGRAM_EIGHT = 8;
     static final int PROGRAM_NINE = 9;
     static final int PROGRAM_TEN = 10;
-    static double HEAD_PERCENTAGE = 0;
-    static double TAIL_PERCENTAGE = 0;
 
     public static void main(String[] args) {
 
@@ -34,8 +32,6 @@ public class BasicCorePrograms {
                 case PROGRAM_ONE:
                     System.out.println("1. Program is to flip the coin");
                     functionOneCoinFlip();
-                    System.out.println("percentage of Head is " + HEAD_PERCENTAGE + " 1%");
-                    System.out.println("percentage of Tail is " + TAIL_PERCENTAGE + " %");
                     functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
@@ -148,6 +144,8 @@ public class BasicCorePrograms {
 
         int headCount = 0;
         int tailCount = 0;
+        double headPercentage = 0;
+        double tailPercentage = 0;
 
         System.out.println("Enter How many times you want to flip the coin");
         Scanner inputForCoinFlip = new Scanner(System.in);
@@ -166,8 +164,10 @@ public class BasicCorePrograms {
                 headCount++;
         }
 
-        TAIL_PERCENTAGE = (double) tailCount / totalTimesFlip * 100;
-        HEAD_PERCENTAGE = (double) headCount / totalTimesFlip * 100;
+        tailPercentage = (double) tailCount / totalTimesFlip * 100;
+        headPercentage = (double) headCount / totalTimesFlip * 100;
+        System.out.println("percentage of Head is " + headPercentage + " %");
+        System.out.println("percentage of Tail is " + tailPercentage + " %");
     }
 
     static void functionTwoLeapYear() {
