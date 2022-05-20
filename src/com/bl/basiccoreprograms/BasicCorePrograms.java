@@ -19,12 +19,13 @@ public class BasicCorePrograms {
     public static void main(String[] args) {
 
         System.out.println("Welcome to the section of Basic core programs");
-        functionDisplayChoices();
+        AllPrograms refVar = new AllPrograms();
+        refVar.functionDisplayChoices();
         System.out.println("Your choices : ");
         Scanner choice = new Scanner(System.in);
         int choiceOfUsers = choice.nextInt();
 
-        while ((choiceOfUsers <= 0 || choiceOfUsers > 11)) {
+        while ((choiceOfUsers <= 0 || choiceOfUsers > TERMINATION)) {
             System.out.println("Please Enter a number between 1 to 10 Only and Enter 11 to terminate from here");
             choiceOfUsers = choice.nextInt();
         }
@@ -33,8 +34,8 @@ public class BasicCorePrograms {
             switch (choiceOfUsers) {
                 case PROGRAM_ONE:
                     System.out.println("1. Program is to flip the coin");
-                    functionOneCoinFlip();
-                    functionToDisplayOverCases();
+                    refVar.functionCoinFlip();
+                    refVar.functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
@@ -43,8 +44,8 @@ public class BasicCorePrograms {
                     break;
                 case PROGRAM_TWO:
                     System.out.println("2. Leap year program ");
-                    functionTwoLeapYear();
-                    functionToDisplayOverCases();
+                    refVar.functionTwoLeapYear();
+                    refVar.functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
@@ -53,8 +54,8 @@ public class BasicCorePrograms {
                     break;
                 case PROGRAM_THREE:
                     System.out.println("3. Power of 2 program");
-                    functionThreePowerOfTwo();
-                    functionToDisplayOverCases();
+                    refVar.functionPowerOfTwo();
+                    refVar.functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
@@ -63,9 +64,9 @@ public class BasicCorePrograms {
                     break;
                 case PROGRAM_FOUR:
                     System.out.println("4. Harmonic Number program");
-                    float harmonicNumber = functionHarmonicNUmber();
+                    float harmonicNumber = refVar.functionHarmonicNUmber();
                     System.out.println("Harmonic value : " + harmonicNumber);
-                    functionToDisplayOverCases();
+                    refVar.functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
@@ -74,8 +75,8 @@ public class BasicCorePrograms {
                     break;
                 case PROGRAM_FIVE:
                     System.out.println("5. Print the prime factors");
-                    functionPrimeFactors();
-                    functionToDisplayOverCases();
+                    refVar.functionPrimeFactors();
+                    refVar.functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
@@ -84,8 +85,8 @@ public class BasicCorePrograms {
                     break;
                 case PROGRAM_SIX:
                     System.out.println("6. Program to compute Quotient and Remainder ");
-                    functionQuotientRemainder();
-                    functionToDisplayOverCases();
+                    refVar.functionQuotientRemainder();
+                    refVar.functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
 
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
@@ -95,8 +96,8 @@ public class BasicCorePrograms {
                     break;
                 case PROGRAM_SEVEN:
                     System.out.println("7. Program to swap two number ");
-                    functionSwappingNumber();
-                    functionToDisplayOverCases();
+                    refVar.functionSwappingNumber();
+                    refVar.functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
@@ -104,13 +105,13 @@ public class BasicCorePrograms {
                     }
                     break;
                 case PROGRAM_EIGHT:
-                    System.out.println("8. Program to swap two number ");
-                    int returnedNumber = functionIsEvenOdd();
+                    System.out.println("8. Check whether a number is even or odd. ");
+                    int returnedNumber = refVar.functionIsEvenOdd();
                     if (returnedNumber == 0)
                         System.out.println("Number is even");
                     else
                         System.out.println("Number is odd");
-                    functionToDisplayOverCases();
+                    refVar.functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
@@ -119,8 +120,8 @@ public class BasicCorePrograms {
                     break;
                 case PROGRAM_NINE:
                     System.out.println("9. Program to check Vowel or Consonant ");
-                    functionConsonantVowel();
-                    functionToDisplayOverCases();
+                    refVar.functionConsonantVowel();
+                    refVar.functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
@@ -129,8 +130,8 @@ public class BasicCorePrograms {
                     break;
                 case PROGRAM_TEN:
                     System.out.println("10. Program to find the largest among three numbers");
-                    System.out.println("Largest of three is : " + functionLargestAmongThree());
-                    functionToDisplayOverCases();
+                    System.out.println("Largest of three is : " + refVar.functionLargestAmongThree());
+                    refVar.functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
                         System.out.println("Program Terminated");
@@ -143,8 +144,11 @@ public class BasicCorePrograms {
             }
         }
     }
+}
 
-    static void functionOneCoinFlip() {
+class AllPrograms {
+
+    void functionCoinFlip() {
 
         int headCount = 0;
         int tailCount = 0;
@@ -174,7 +178,7 @@ public class BasicCorePrograms {
         System.out.println("percentage of Tail is " + tailPercentage + " %");
     }
 
-    static void functionTwoLeapYear() {
+    void functionTwoLeapYear() {
         System.out.println("Enter a Year to check that year is Leap year or not");
         Scanner inputForYear = new Scanner(System.in);
         int inputYear = inputForYear.nextInt();
@@ -190,7 +194,7 @@ public class BasicCorePrograms {
             System.out.println("Input Year " + inputYear + " is not a Leap year");
     }
 
-    static void functionThreePowerOfTwo() {
+    void functionPowerOfTwo() {
         Scanner inputForN = new Scanner(System.in);
         System.out.println("Please enter a number to print power of 2");
         int number = inputForN.nextInt();
@@ -205,7 +209,7 @@ public class BasicCorePrograms {
         }
     }
 
-    static void functionQuotientRemainder() {
+    void functionQuotientRemainder() {
         float divisor, dividend, quotient, remainder;
         Scanner forInputs = new Scanner(System.in);
         System.out.println("Please enter a Dividend");
@@ -220,7 +224,7 @@ public class BasicCorePrograms {
         System.out.println("Remainder is : " + remainder);
     }
 
-    static void functionSwappingNumber() {
+    void functionSwappingNumber() {
         int number1, number2;
         Scanner toInputNumbers = new Scanner(System.in);
         System.out.println("Please enter a 1st number");
@@ -236,15 +240,14 @@ public class BasicCorePrograms {
         System.out.println("Number after swapping : " + number1 + " " + number2);
     }
 
-    static int functionIsEvenOdd() {
+    int functionIsEvenOdd() {
         System.out.println("Enter the number to check Even or odd");
         Scanner takeInput = new Scanner(System.in);
-
         int number = takeInput.nextInt();
         return number % 2;
     }
 
-    static int functionLargestAmongThree() {
+    int functionLargestAmongThree() {
         int number1, number2, number3, maxOfAllThree, tempVarForStoring;
         Scanner sc = new Scanner(System.in);
         System.out.println("Please Enter the 1st number");
@@ -259,7 +262,7 @@ public class BasicCorePrograms {
         return maxOfAllThree;
     }
 
-    static void functionConsonantVowel() {
+    void functionConsonantVowel() {
         boolean isVowel = false;
         System.out.println("Enter an Alphabet to check whether it is Vowel or Consonant");
         Scanner takingChar = new Scanner(System.in);
@@ -284,7 +287,7 @@ public class BasicCorePrograms {
             System.out.println("Please Enter an Alphabet");
     }
 
-    static float functionHarmonicNUmber() {
+    float functionHarmonicNUmber() {
         Scanner takeInput = new Scanner(System.in);
         System.out.println("Please enter a number to find out the N-th Harmonic");
         int numberN = takeInput.nextInt();
@@ -296,21 +299,23 @@ public class BasicCorePrograms {
         return harmonic;
     }
 
-    static void functionPrimeFactors() {
+    void functionPrimeFactors() {
         int number;
         Scanner takeInput = new Scanner(System.in);
         System.out.println("Please enter a number to find out the prime factors");
         number = takeInput.nextInt();
-
-        for (int index = 2; index <= number; index++) {
+        int index;
+        for (index = 2; index * index <= number; index++) {
             while (number % index == 0) {
                 System.out.print("\t" + index + "\t");
                 number = number / index;
             }
         }
+        if (!(index * index <= number))
+            System.out.println("\t" + number);
     }
 
-    static void functionDisplayChoices() {
+    void functionDisplayChoices() {
         System.out.println(" \n Below is the list of all 10 Programs ");
         System.out.println("Enter a number between 1 to 10 to run any one of the program");
         System.out.println("1. Flip coin and print percentage program ");
@@ -325,7 +330,7 @@ public class BasicCorePrograms {
         System.out.println("10. Largest among three Numbers Program ");
     }
 
-    static void functionToDisplayOverCases() {
+    void functionToDisplayOverCases() {
         functionDisplayChoices();
         System.out.println("Enter a number between 1 to 10 to run any one of the program and any other number to terminate");
         System.out.println("Your choices : ");
