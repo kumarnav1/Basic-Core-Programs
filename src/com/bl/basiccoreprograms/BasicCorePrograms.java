@@ -54,7 +54,8 @@ public class BasicCorePrograms {
                     break;
                 case PROGRAM_THREE:
                     System.out.println("3. Power of 2 program");
-                    refVar.functionPowerOfTwo();
+                    int number = Integer.parseInt(args[0]);
+                    refVar.functionPowerOfTwo(number);
                     refVar.functionToDisplayOverCases();
                     choiceOfUsers = choice.nextInt();
                     if ((choiceOfUsers < 0 || choiceOfUsers > 10)) {
@@ -194,16 +195,15 @@ class AllPrograms {
             System.out.println("Input Year " + inputYear + " is not a Leap year");
     }
 
-    void functionPowerOfTwo() {
+    void functionPowerOfTwo(int numberN) {
         Scanner inputForN = new Scanner(System.in);
         System.out.println("Please enter a number to print power of 2");
-        int number = inputForN.nextInt();
 
-        while (!(number >= 0 && number < 31)) {
+        while (!(numberN >= 0 && numberN < 31)) {
             System.out.println("This will cause Integer overflow. Please Enter number between 0 to 31 ");
-            number = inputForN.nextInt();
+            numberN = inputForN.nextInt();
         }
-        for (int index = 0; index <= number; index++) {
+        for (int index = 0; index <= numberN; index++) {
             int answer = (int) Math.pow(2, index);
             System.out.println("2 ^ " + index + " = " + answer);
         }
